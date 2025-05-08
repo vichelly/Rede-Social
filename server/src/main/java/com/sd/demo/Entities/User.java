@@ -15,16 +15,12 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String username;
-    private String email;
 
     @ManyToMany
     private Set<User> following = new HashSet<>();
 
     public Set<User> getFollowing() {
         return following;
-    }
-    public String getEmail() {
-        return email;
     }
     public Long getId() {
         return id;
@@ -35,9 +31,6 @@ public class User {
 
     public void setFollowing(Set<User> following) {
         this.following = following;
-    }
-    public void setEmail(String email) {
-        this.email = email;
     }
     public void setId(Long id) {
         this.id = id;
