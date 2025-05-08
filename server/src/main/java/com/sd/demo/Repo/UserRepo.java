@@ -1,11 +1,29 @@
 package com.sd.demo.Repo;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import java.util.Collection;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
-import java.util.Optional;
+import org.springframework.stereotype.Component;
+
+import java.util.Optional; 
 
 import com.sd.demo.Entities.User;
 
-public interface UserRepo extends JpaRepository<User, Long> {
-    Optional<User> findByUsername(String name);
+@Component
+public class UserRepo {
+    private Map<String, User> users = new ConcurrentHashMap<>();
+
+    public Optional<User> findByUsername(String username) {
+        return Optional.ofNullable(users.get(username));
+    }
+
+    public User save(User user) {
+        users.put(user.getUsername(), user);
+        return user;
+    }
+
+    public Collection<User> findAll() {
+        return users.values();
+    }
 }
