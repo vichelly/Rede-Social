@@ -28,4 +28,8 @@ public class UserService {
         follower.getFollowing().add(followee);
         UserRepo.save(follower);
     }
+
+    public User createUser(String username, String email) {
+        throw new UnsupportedOperationException("Unimplemented method 'createUser'");
+    }
 }
