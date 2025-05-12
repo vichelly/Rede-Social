@@ -12,19 +12,18 @@ import com.sd.demo.Repo.PostRepo;
 
 @Service
 public class PostService {
+    
     @Autowired
     private PostRepo postRepository;
 
+    // Criar um novo post
     public Post createPost(User user, String content) {
-        Post post = new Post();
-        post.setContent(content);
-        post.setTimestamp(LocalDateTime.now());
-        post.setUser(user);
+        Post post = new Post(user, content, LocalDateTime.now());
         return postRepository.save(post);
     }
 
+    // Buscar posts de um usuário
     public List<Post> getUserPosts(User user) {
         return postRepository.findByUser(user);
     }
 }
-

@@ -3,40 +3,30 @@ package com.sd.demo.Entities;
 import java.util.HashSet;
 import java.util.Set;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
-
-@Entity
 public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
     private String username;
+    private Set<String> following = new HashSet<>();
 
-    @ManyToMany
-    private Set<User> following = new HashSet<>();
+    public User() {}
 
-    public Set<User> getFollowing() {
-        return following;
+    public User(String username) {
+        this.username = username;
     }
-    public Long getId() {
-        return id;
-    }
+
     public String getUsername() {
         return username;
     }
 
-    public void setFollowing(Set<User> following) {
-        this.following = following;
+    public Set<String> getFollowing() {
+        return following;
     }
-    public void setId(Long id) {
-        this.id = id;
-    }
+
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public void follow(String otherUsername) {
+        this.following.add(otherUsername);
     }
 
 }

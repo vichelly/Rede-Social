@@ -1,7 +1,5 @@
 package com.sd.demo.Service;
 
-import java.util.NoSuchElementException;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,26 +8,28 @@ import com.sd.demo.Repo.UserRepo;
 
 @Service
 public class UserService {
+
     @Autowired
-    private UserRepo UserRepo;
+    private UserRepo userRepo;
 
-    public User getUserByUsername(String username){
-        return UserRepo.findByUsername(username)
-            .orElseThrow(() -> new NoSuchElementException("User not found"));
+    public User createUser(String username) {
+        if (username == null || username.trim().isEmpty()) {
+            throw new IllegalArgumentException("Username cannot be null or empty.");
+        }
+        User user = new User(username);
+        return userRepo.save(user);
     }
 
-    public User creatUser(String username){
-        User user = new User();
-        user.setUsername(username);
-        return UserRepo.save(user);
+    public User getUserByUsername(String username) {
+        return userRepo.findByUsername(username)
+            .orElseThrow(() -> new RuntimeException("User not found: " + username));
     }
 
-    public void followUser(User follower, User followee){
-        follower.getFollowing().add(followee);
-        UserRepo.save(follower);
-    }
-
-    public User createUser(String username, String email) {
-        throw new UnsupportedOperationException("Unimplemented method 'createUser'");
+    public void followUser(User follower, User followee) {
+        if (follower == null || followee == null) {
+            throw new IllegalArgumentException("Users cannot be null.");
+        }
+        follower.follow(followee.getUsername());
+        userRepo.save(follower); // Re-salva o seguidor atualizado
     }
 }
