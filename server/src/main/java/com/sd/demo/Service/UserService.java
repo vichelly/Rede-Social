@@ -1,5 +1,8 @@
 package com.sd.demo.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -8,28 +11,32 @@ import com.sd.demo.Repo.UserRepo;
 
 @Service
 public class UserService {
-
+    
     @Autowired
     private UserRepo userRepo;
 
     public User createUser(String username) {
-        if (username == null || username.trim().isEmpty()) {
-            throw new IllegalArgumentException("Username cannot be null or empty.");
-        }
-        User user = new User(username);
+        User user = new User();
+        user.setUsername(username);
         return userRepo.save(user);
     }
 
     public User getUserByUsername(String username) {
-        return userRepo.findByUsername(username)
-            .orElseThrow(() -> new RuntimeException("User not found: " + username));
+        return userRepo.findByUsername(username);
     }
 
     public void followUser(User follower, User followee) {
-        if (follower == null || followee == null) {
-            throw new IllegalArgumentException("Users cannot be null.");
+        follower.getFollowing().add(followee.getUsername());
+        userRepo.save(follower);
+    }
+
+    public List<String> getFollowers(String username) {
+        List<String> followers = new ArrayList<>();
+        for (User user : userRepo.findAll()) {
+            if (user.getFollowing().contains(username)) {
+                followers.add(user.getUsername());
+            }
         }
-        follower.follow(followee.getUsername());
-        userRepo.save(follower); // Re-salva o seguidor atualizado
+        return followers;
     }
 }

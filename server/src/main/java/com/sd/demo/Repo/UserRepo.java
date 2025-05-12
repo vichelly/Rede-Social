@@ -6,7 +6,6 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import org.springframework.stereotype.Component;
 
-import java.util.Optional; 
 
 import com.sd.demo.Entities.User;
 
@@ -14,13 +13,13 @@ import com.sd.demo.Entities.User;
 public class UserRepo {
     private Map<String, User> users = new ConcurrentHashMap<>();
 
-    public Optional<User> findByUsername(String username) {
-        return Optional.ofNullable(users.get(username));
-    }
-
     public User save(User user) {
         users.put(user.getUsername(), user);
         return user;
+    }
+
+    public User findByUsername(String username) {
+        return users.get(username);
     }
 
     public Collection<User> findAll() {
