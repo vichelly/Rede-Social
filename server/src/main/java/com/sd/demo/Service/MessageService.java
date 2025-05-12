@@ -27,5 +27,10 @@ public class MessageService {
     public List<Message> getMessagesForUser(User user) {
         return messageRepository.findByReceiver(user);
     }
+
+    // Novo método para buscar mensagens recebidas
+    public List<Message> getMessagesForReceiver(User receiver) {
+        return messageRepository.findByReceiver(receiver);
+    }
 }
 
