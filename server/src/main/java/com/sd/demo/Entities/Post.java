@@ -1,17 +1,15 @@
 package com.sd.demo.Entities;
 
-import java.time.LocalDateTime;
-
 public class Post {
 
     private long id;
     private User user;
     private String content;
-    private LocalDateTime timestamp;
+    private int timestamp;
 
     public Post() {}
 
-    public Post(User user, String content, LocalDateTime timestamp) {
+    public Post(User user, String content, int timestamp) {
         this.user = user;
         this.content = content;
         this.timestamp = timestamp;
@@ -43,11 +41,11 @@ public class Post {
         this.content = content;
     }
 
-    public LocalDateTime getTimestamp() {
+    public int getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(LocalDateTime timestamp) {
+    public void setTimestamp(int timestamp) {
         this.timestamp = timestamp;
     }
 }

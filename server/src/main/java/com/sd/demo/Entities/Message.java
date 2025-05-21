@@ -1,7 +1,5 @@
 package com.sd.demo.Entities;
 
-import java.time.LocalDateTime;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -14,7 +12,7 @@ public class Message {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String content;
-    private LocalDateTime timestamp;
+    private int timestamp;
 
     @ManyToOne
     private User sender;
@@ -34,7 +32,7 @@ public class Message {
     public User getSender() {
         return sender;
     }
-    public LocalDateTime getTimestamp() {
+    public int getTimestamp() {
         return timestamp;
     }
 
@@ -50,7 +48,7 @@ public class Message {
     public void setSender(User sender) {
         this.sender = sender;
     }
-    public void setTimestamp(LocalDateTime timestamp) {
+    public void setTimestamp(int timestamp) {
         this.timestamp = timestamp;
     }
 }

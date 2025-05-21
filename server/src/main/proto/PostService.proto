@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package post;
+
+service PostService {
+  rpc CreatePost (CreatePostRequest) returns (PostResponse);
+  rpc GetPostsByUser (GetPostsRequest) returns (PostsResponse);
+}
+
+message CreatePostRequest {
+  string username = 1;
+  string content = 2;
+}
+
+message GetPostsRequest {
+  string username = 1;
+}
+
+message PostResponse {
+  string username = 1;
+  string content = 2;
+  string timestamp = 3;
+}
+
+message PostsResponse {
+  repeated PostResponse posts = 1;
+}
