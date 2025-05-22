@@ -33,27 +33,19 @@ def stream_messages(username):
     except grpc.RpcError as e:
         print(f"[Mensagem] Erro no streaming:\nStatus code: {e.code()}\nDetails: {e.details()}")
 
-def stream_messages(username):
+def send_message(sender, receiver, content):
     channel = grpc.insecure_channel('localhost:9090')
     stub = message_pb2_grpc.MessageServiceStub(channel)
 
-    print(f"Conectando ao stream de mensagens para {username}...")
-    try:
-        for msg in stub.SubscribeMessages(message_pb2.MessageSubscriptionRequest(username=username)):
-            print(f"[Mensagem] {msg.sender} -> {msg.receiver}: {msg.content} ({msg.timestamp})")
-    except grpc.RpcError as e:
-        print(f"[Mensagem] Erro no streaming:\nStatus code: {e.code()}\nDetails: {e.details()}")
+    request = message_pb2.PrivateMessageRequest(
+        sender=sender,
+        receiver=receiver,
+        content=content
+    )
+
+    response = stub.SendMessage(request)
+    print(f"Mensagem enviada: {response.sender} -> {response.receiver}: {response.content}")
 
 if __name__ == '__main__':
-    user = input("Digite seu nome de usuário: ")
-    
-    stream_messages(user)
+    send_message("bob", "alice", "Oi Alice!")
 
-    t1 = threading.Thread(target=stream_posts)
-    t2 = threading.Thread(target=stream_messages, args=(user,))
-
-    t1.start()
-    t2.start()
-
-    t1.join()
-    t2.join()

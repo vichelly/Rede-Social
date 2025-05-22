@@ -3,7 +3,7 @@
 import grpc
 import warnings
 
-import PostService_pb2 as PostService__pb2
+import MessageService_pb2 as MessageService__pb2
 
 GRPC_GENERATED_VERSION = '1.71.0'
 GRPC_VERSION = grpc.__version__
@@ -18,14 +18,14 @@ except ImportError:
 if _version_not_supported:
     raise RuntimeError(
         f'The grpc package installed is at version {GRPC_VERSION},'
-        + f' but the generated code in PostService_pb2_grpc.py depends on'
+        + f' but the generated code in MessageService_pb2_grpc.py depends on'
         + f' grpcio>={GRPC_GENERATED_VERSION}.'
         + f' Please upgrade your grpc module to grpcio>={GRPC_GENERATED_VERSION}'
         + f' or downgrade your generated code using grpcio-tools<={GRPC_VERSION}.'
     )
 
 
-class PostServiceStub(object):
+class MessageServiceStub(object):
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -34,59 +34,59 @@ class PostServiceStub(object):
         Args:
             channel: A grpc.Channel.
         """
-        self.CreatePost = channel.unary_unary(
-                '/PostService/CreatePost',
-                request_serializer=PostService__pb2.CreatePostRequest.SerializeToString,
-                response_deserializer=PostService__pb2.PostResponse.FromString,
+        self.SendMessage = channel.unary_unary(
+                '/MessageService/SendMessage',
+                request_serializer=MessageService__pb2.PrivateMessageRequest.SerializeToString,
+                response_deserializer=MessageService__pb2.MessageResponse.FromString,
                 _registered_method=True)
-        self.SubscribePosts = channel.unary_stream(
-                '/PostService/SubscribePosts',
-                request_serializer=PostService__pb2.SubscribeRequest.SerializeToString,
-                response_deserializer=PostService__pb2.PostResponse.FromString,
+        self.SubscribeMessages = channel.unary_stream(
+                '/MessageService/SubscribeMessages',
+                request_serializer=MessageService__pb2.MessageSubscriptionRequest.SerializeToString,
+                response_deserializer=MessageService__pb2.MessageResponse.FromString,
                 _registered_method=True)
 
 
-class PostServiceServicer(object):
+class MessageServiceServicer(object):
     """Missing associated documentation comment in .proto file."""
 
-    def CreatePost(self, request, context):
+    def SendMessage(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def SubscribePosts(self, request, context):
+    def SubscribeMessages(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
 
-def add_PostServiceServicer_to_server(servicer, server):
+def add_MessageServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
-            'CreatePost': grpc.unary_unary_rpc_method_handler(
-                    servicer.CreatePost,
-                    request_deserializer=PostService__pb2.CreatePostRequest.FromString,
-                    response_serializer=PostService__pb2.PostResponse.SerializeToString,
+            'SendMessage': grpc.unary_unary_rpc_method_handler(
+                    servicer.SendMessage,
+                    request_deserializer=MessageService__pb2.PrivateMessageRequest.FromString,
+                    response_serializer=MessageService__pb2.MessageResponse.SerializeToString,
             ),
-            'SubscribePosts': grpc.unary_stream_rpc_method_handler(
-                    servicer.SubscribePosts,
-                    request_deserializer=PostService__pb2.SubscribeRequest.FromString,
-                    response_serializer=PostService__pb2.PostResponse.SerializeToString,
+            'SubscribeMessages': grpc.unary_stream_rpc_method_handler(
+                    servicer.SubscribeMessages,
+                    request_deserializer=MessageService__pb2.MessageSubscriptionRequest.FromString,
+                    response_serializer=MessageService__pb2.MessageResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'PostService', rpc_method_handlers)
+            'MessageService', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
-    server.add_registered_method_handlers('PostService', rpc_method_handlers)
+    server.add_registered_method_handlers('MessageService', rpc_method_handlers)
 
 
  # This class is part of an EXPERIMENTAL API.
-class PostService(object):
+class MessageService(object):
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
-    def CreatePost(request,
+    def SendMessage(request,
             target,
             options=(),
             channel_credentials=None,
@@ -99,9 +99,9 @@ class PostService(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/PostService/CreatePost',
-            PostService__pb2.CreatePostRequest.SerializeToString,
-            PostService__pb2.PostResponse.FromString,
+            '/MessageService/SendMessage',
+            MessageService__pb2.PrivateMessageRequest.SerializeToString,
+            MessageService__pb2.MessageResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -113,7 +113,7 @@ class PostService(object):
             _registered_method=True)
 
     @staticmethod
-    def SubscribePosts(request,
+    def SubscribeMessages(request,
             target,
             options=(),
             channel_credentials=None,
@@ -126,9 +126,9 @@ class PostService(object):
         return grpc.experimental.unary_stream(
             request,
             target,
-            '/PostService/SubscribePosts',
-            PostService__pb2.SubscribeRequest.SerializeToString,
-            PostService__pb2.PostResponse.FromString,
+            '/MessageService/SubscribeMessages',
+            MessageService__pb2.MessageSubscriptionRequest.SerializeToString,
+            MessageService__pb2.MessageResponse.FromString,
             options,
             channel_credentials,
             insecure,

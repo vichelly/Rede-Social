@@ -1,0 +1,17 @@
+server:
+  port: 8081
+
+grpc:
+  server:
+    port: 9091
+
+election:
+  others: "0,2"
+
+spring:
+  application:
+    name: social-network-server
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+      - org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration

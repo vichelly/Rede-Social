@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "message";
+option java_outer_classname = "MessageServiceProto";
+
+service MessageService {
+  rpc SendMessage (PrivateMessageRequest) returns (MessageResponse);
+  rpc SubscribeMessages (MessageSubscriptionRequest) returns (stream MessageResponse);
+}
+
+message PrivateMessageRequest {
+  string sender = 1;
+  string receiver = 2;
+  string content = 3;
+}
+
+message MessageResponse {
+  string sender = 1;
+  string receiver = 2;
+  string content = 3;
+  string timestamp = 4;
+}
+
+message MessageSubscriptionRequest {
+  string username = 1;
+}
