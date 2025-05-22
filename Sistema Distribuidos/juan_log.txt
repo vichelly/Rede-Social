@@ -28,3 +28,10 @@
 [1747921124.36 | 1] Enviou mensagem pública: asdasd
 [1747921133.66 | 2] Enviou (privado): fjkdshf
 [1747921133.66 | 12] Recebeu (privado): Eco: fjkdshf
+[1747952016.76 | 1] Enviou (privado): funfa
+[1747952017.51 | 2] Enviou (privado): funfa
+[1747952017.51 | 2] Recebeu (privado) de juan: funfa
+[1747952016.76 | 2] Recebeu (privado) de juan: Eco: funfa
+[1747952071.51 | 2] Enviou (privado): funfa
+[1747952072.63 | 3] Enviou (privado): funfa
+[1747952071.51 | 3] Recebeu (privado) de lucas: Eco: funfa

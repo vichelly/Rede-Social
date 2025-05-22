@@ -28,7 +28,15 @@ function ChatMensagens(call) {
   call.on('data', (mensagem) => {
     clockLogico = Math.max(clockLogico, mensagem.timestamp) + 1;
     const tsFisico = agora();
+
+    // Log no servidor
     logEvent("servidor", `[Chat] ${mensagem.de} para ${mensagem.para}: ${mensagem.conteudo}`, clockLogico, tsFisico);
+
+    // Log no remetente
+    logEvent(mensagem.de, `Enviou (privado): ${mensagem.conteudo}`, clockLogico, tsFisico);
+
+    // Log no destinatário
+    logEvent(mensagem.para, `Recebeu (privado) de ${mensagem.de}: ${mensagem.conteudo}`, clockLogico, tsFisico);
 
     call.write({
       de: mensagem.para,
@@ -42,6 +50,7 @@ function ChatMensagens(call) {
     call.end();
   });
 }
+
 
 function ObterTempoVivo(call, callback) {
   callback(null, { tempo: agora() });

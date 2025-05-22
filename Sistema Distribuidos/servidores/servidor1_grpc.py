@@ -34,8 +34,15 @@ class MensagemServiceImpl(mensagem_pb2_grpc.MensagemServiceServicer):
             ts_logico = self.clock_logico.update(mensagem.timestamp)
             ts_fisico = self.clock_fisico.agora()
 
+            # Log do servidor
             evento = f"[Chat] {mensagem.de} para {mensagem.para}: {mensagem.conteudo}"
             log_event("servidor", evento, ts_logico, ts_fisico)
+
+            # Log do remetente
+            log_event(mensagem.de, f"Enviou (privado): {mensagem.conteudo}", ts_logico, ts_fisico)
+
+            # Log do destinatário
+            log_event(mensagem.para, f"Recebeu (privado) de {mensagem.de}: {mensagem.conteudo}", ts_logico, ts_fisico)
 
             yield mensagem_pb2.Mensagem(
                 de=mensagem.para,

@@ -3,3 +3,10 @@
 [1747916292.50 | 5] Recebeu (privado): Eco: teste
 [1747916305.34 | 3] Enviou (privado): asd
 [1747916305.34 | 6] Recebeu (privado): Eco: asd
+[1747950862.74 | 1] Enviou (privado): deve funcionar
+[1747950862.75 | 2] Recebeu (privado) de juan: Eco: deve funcionar
+[1747950870.78 | 2] Enviou (privado): voltar
+[1747950870.78 | 3] Recebeu (privado) de juan: Eco: voltar
+[1747950873.27 | 3] Enviou (privado): 
+[1747950873.27 | 4] Recebeu (privado) de juan: Eco: 
+[1747952072.63 | 3] Recebeu (privado) de juan: funfa

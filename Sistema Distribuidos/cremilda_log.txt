@@ -1,0 +1,4 @@
+[1747947591.78 | 1] Enviou (privado): salve
+[1747947591.78 | 2] Recebeu (privado): Eco: salve
+[1747947746.16 | 2] Enviou (privado): 
+[1747947746.16 | 3] Recebeu (privado): Eco: 

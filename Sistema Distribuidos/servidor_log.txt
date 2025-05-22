@@ -43,3 +43,10 @@
 [1747921126.33 | 11] Mensagem recebida de juan para todos: asdasd
 [1747921135.72 | 12] [Chat] juan para alice: fjkdshf
 [1747921174.87 | 13] Mensagem recebida de alice para todos: asdafafsdg
+[1747947592.61 | 2] [Chat] cremilda para juan: salve
+[1747947748.07 | 3] [Chat] cremilda para juan: 
+[1747950867.04 | 2] [Chat] lucas para juan: deve funcionar
+[1747950875.18 | 3] [Chat] lucas para juan: voltar
+[1747950877.66 | 4] [Chat] lucas para juan: 
+[1747952017.51 | 2] [Chat] juan para juan: funfa
+[1747952072.63 | 3] [Chat] juan para lucas: funfa

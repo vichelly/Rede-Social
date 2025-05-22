@@ -57,20 +57,28 @@ const servidor: any = {
   },
 
   ChatMensagens: (call: any) => {
-    call.on('data', (mensagem: any) => {
-      const ts = lamport.update(mensagem.timestamp);
-      const fisico = relogio.agora();
-      logEvent('servidor', `[Chat] ${mensagem.de} para ${mensagem.para}: ${mensagem.conteudo}`, ts, fisico);
+  call.on('data', (mensagem: any) => {
+    const ts = lamport.update(mensagem.timestamp);
+    const fisico = relogio.agora();
 
-      call.write({
-        de: mensagem.para,
-        para: mensagem.de,
-        conteudo: `Eco: ${mensagem.conteudo}`,
-        timestamp: ts
-      });
+    // Log no servidor
+    logEvent('servidor', `[Chat] ${mensagem.de} para ${mensagem.para}: ${mensagem.conteudo}`, ts, fisico);
+
+    // Log no remetente
+    logEvent(mensagem.de, `Enviou (privado): ${mensagem.conteudo}`, ts, fisico);
+
+    // Log no destinatário
+    logEvent(mensagem.para, `Recebeu (privado) de ${mensagem.de}: ${mensagem.conteudo}`, ts, fisico);
+
+    call.write({
+      de: mensagem.para,
+      para: mensagem.de,
+      conteudo: `Eco: ${mensagem.conteudo}`,
+      timestamp: ts
     });
+  });
 
-    call.on('end', () => call.end());
+  call.on('end', () => call.end());
   },
 
   ObterTempoVivo: (_: any, callback: any) => {
