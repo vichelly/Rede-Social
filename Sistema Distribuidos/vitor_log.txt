@@ -1,0 +1,11 @@
+[1747917131.19 | 1] Enviou mensagem pública: testando
+[1747917155.32 | 2] Enviou (privado): testa
+[1747917155.32 | 8] Recebeu (privado): Eco: testa
+[1747917157.06 | 3] Enviou (privado): asd
+[1747917157.06 | 9] Recebeu (privado): Eco: asd
+[1747917158.29 | 4] Enviou (privado): ds
+[1747917158.29 | 10] Recebeu (privado): Eco: ds
+[1747917161.25 | 5] Enviou (privado): 5
+[1747917161.25 | 11] Recebeu (privado): Eco: 5
+[1747920868.78 | 1] Enviou mensagem pública: testando msf
+[1747920900.20 | 2] Enviou mensagem pública: teste gfdghdfdhg

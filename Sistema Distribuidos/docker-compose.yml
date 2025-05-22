@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  servidor-ts:
+    build:
+      context: .
+      dockerfile: Dockerfile.typescript
+    environment:
+      - PORTA_SERVIDOR=50053
+    ports:
+      - "50053:50053"
+
+  servidor1:
+    build:
+      context: .
+      dockerfile: Dockerfile.python
+    environment:
+      - PORTA_SERVIDOR=50051
+    ports:
+      - "50051:50051"
+
+  servidor2:
+    build:
+      context: .
+      dockerfile: Dockerfile.node
+    environment:
+      - PORTA_SERVIDOR=50052
+    command: node servidores/servidor2_grpc.js
+    ports:
+      - "50052:50052"

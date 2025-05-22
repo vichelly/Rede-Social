@@ -1,0 +1,5 @@
+[1747916266.06 | 1] Enviou mensagem pública: testando lucas
+[1747916292.50 | 2] Enviou (privado): teste
+[1747916292.50 | 5] Recebeu (privado): Eco: teste
+[1747916305.34 | 3] Enviou (privado): asd
+[1747916305.34 | 6] Recebeu (privado): Eco: asd

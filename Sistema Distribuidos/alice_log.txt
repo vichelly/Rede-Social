@@ -2,3 +2,14 @@
 [1747862287.23 | 1] Enviou mensagem pública: chupa
 [1747862305.09 | 2] Enviou (privado): chupa otario
 [1747862305.09 | 3] Recebeu (privado): Eco: chupa otario
+[1747915813.04 | 1] Enviou mensagem pública: teste
+[1747915847.16 | 2] Enviou (privado): teste2
+[1747915847.16 | 3] Recebeu (privado): Eco: teste2
+[1747915888.48 | 3] Enviou (privado): 
+[1747915888.48 | 4] Recebeu (privado): Eco: 
+[1747915891.65 | 4] Enviou (privado): dsa
+[1747915891.65 | 5] Recebeu (privado): Eco: dsa
+[1747916094.56 | 1] Enviou mensagem pública: teste4
+[1747916110.85 | 2] Enviou (privado): testando
+[1747916110.85 | 3] Recebeu (privado): Eco: testando
+[1747921172.54 | 1] Enviou mensagem pública: asdafafsdg

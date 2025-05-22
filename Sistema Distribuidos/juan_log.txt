@@ -1,3 +1,30 @@
 [1747862210.05 | 1] Enviou mensagem pública: ola
 [1747862228.56 | 2] Enviou mensagem pública: vamooo chat
 [1747882399.89 | 1] Enviou mensagem pública: funciona
+[1747917574.17 | 1] Enviou mensagem pública: mega tesste
+[1747917602.55 | 2] Enviou mensagem pública: testando pra alice
+[1747917621.12 | 3] Enviou (privado): ola
+[1747917621.13 | 14] Recebeu (privado): Eco: ola
+[1747917624.45 | 4] Enviou (privado): tudo bem
+[1747917624.45 | 15] Recebeu (privado): Eco: tudo bem
+[1747917635.82 | 5] Enviou (privado): sou o juan
+[1747917635.82 | 16] Recebeu (privado): Eco: sou o juan
+[1747920064.14 | 1] Enviou mensagem pública: testando lucas
+[1747920080.19 | 2] Enviou mensagem pública: testeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee asdasd
+[1747920442.37 | 1] Enviou (privado): oii alice
+[1747920442.37 | 4] Recebeu (privado): Eco: oii alice
+[1747920960.62 | 1] Enviou mensagem pública: testangsdfsadfsdfsdfsdf
+[1747920997.44 | 2] Enviou (privado): eas
+[1747920997.44 | 5] Recebeu (privado): Eco: eas
+[1747921004.67 | 3] Enviou (privado): dasdasd
+[1747921004.67 | 6] Recebeu (privado): Eco: dasdasd
+[1747921006.37 | 4] Enviou (privado): asdasd
+[1747921006.37 | 7] Recebeu (privado): Eco: asdasd
+[1747921073.86 | 1] Enviou mensagem pública: dsfsafdghsdfghsdfghsdfghsdhgfsdhsdfhgsgdhsdfgsadfg
+[1747921083.81 | 2] Enviou (privado): asasdfjhasudifg
+[1747921083.81 | 9] Recebeu (privado): Eco: asasdfjhasudifg
+[1747921084.85 | 3] Enviou (privado): sagsadjfkghauisjdfgb
+[1747921084.85 | 10] Recebeu (privado): Eco: sagsadjfkghauisjdfgb
+[1747921124.36 | 1] Enviou mensagem pública: asdasd
+[1747921133.66 | 2] Enviou (privado): fjkdshf
+[1747921133.66 | 12] Recebeu (privado): Eco: fjkdshf
