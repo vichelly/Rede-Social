@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package mensagens;
+
+service MensagemService {
+  rpc EnviarMensagem(Mensagem) returns (Confirmacao);
+  rpc ChatMensagens(stream Mensagem) returns (stream Mensagem);
+
+  // Adicionados para sincronização de relógio
+  rpc ObterTempoVivo(Vazio) returns (Tempo);
+  rpc AjustarTempo(DeltaTempo) returns (Vazio);
+}
+
+message Mensagem {
+  string de = 1;
+  string para = 2;
+  string conteudo = 3;
+  int32 timestamp = 4;
+}
+
+message Confirmacao {
+  bool recebido = 1;
+}
+
+message Vazio {} // Necessário para chamadas sem argumentos
+
+message Tempo {
+  double tempo = 1;
+}
+
+message DeltaTempo {
+  double delta = 1;
+}

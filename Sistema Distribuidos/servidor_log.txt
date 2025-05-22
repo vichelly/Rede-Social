@@ -1,0 +1,6 @@
+[1747852520.66 | 2] Mensagem recebida de alice para bob: Olá, Bob!
+[1747862210.05 | 2] Mensagem recebida de juan para todos: ola
+[1747862228.56 | 3] Mensagem recebida de juan para todos: vamooo chat
+[1747862287.23 | 2] Mensagem recebida de alice para todos: chupa
+[1747862305.09 | 3] [Chat] alice para juan: chupa otario
+[1747882400.75 | 2] Mensagem recebida de juan para todos: funciona

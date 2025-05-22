@@ -1,0 +1,4 @@
+[1747852520.64 | 1] Enviou mensagem simples para bob
+[1747862287.23 | 1] Enviou mensagem pública: chupa
+[1747862305.09 | 2] Enviou (privado): chupa otario
+[1747862305.09 | 3] Recebeu (privado): Eco: chupa otario
